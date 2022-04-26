@@ -6,6 +6,9 @@ Note:
 2. Only available on Linux system (as of April 2022)
 3. The MPS control daemon is bound to a specific GPU device so if you have multiple GPUs, you will have to start mutlitple control daemons
 
+## How MPS work?
+![How MPS work?](./imgs/how_mps_work.svg)
+
 ## Start mps control daemon
 ```bash
 # start MPS on gpu #3
