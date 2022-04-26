@@ -20,10 +20,21 @@ sudo env GPU_ID=3 bash start_mps.bash
 export GPU_ID=3
 export CUDA_MPS_PIPE_DIRECTORY=/tmp/mps_$GPU_ID
 # here is a testing script I wrote
+## show num of availabel devices
+python cuda_app.py
+## do some work on device 0
 python cuda_app.py --gpu 0
 ```
 
 Note that via MPS, the CUDA application would see only one GPU. Try to run `python cuda_app.py --gpu 3` in the above snippet and see what happen.
+Here is the output I got:
+```
+num of available GPUs: 1
+Traceback (most recent call last):
+  File "cuda_app.py", line 13, in <module>
+    device = cuda.Device(gpu_id)
+pycuda._driver.LogicError: cuDeviceGet failed: invalid device ordinal
+```
 
 
 ## Stop mps control daemon
