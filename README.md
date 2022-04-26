@@ -15,7 +15,7 @@ Note:
 sudo env GPU_ID=3 bash start_mps.bash
 ```
 
-# Run your CUDA application
+## Run your CUDA application
 ```bash
 export GPU_ID=3
 export CUDA_MPS_PIPE_DIRECTORY=/tmp/mps_$GPU_ID
