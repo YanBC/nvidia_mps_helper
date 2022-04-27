@@ -5,6 +5,7 @@ Note:
 1. Only available on post-Kepler GPUs, i.e. SM 3.5 or later
 2. Only available on Linux system (as of April 2022)
 3. The MPS control daemon is bound to a specific GPU device so if you have multiple GPUs, you will have to start mutlitple control daemons
+4. There is an upper limit on how many clients an mps server can support, for SM 3.5 to SM 6.0, the number is 16. For SM 7.0 it is 48 clients.
 
 ## How MPS work?
 ![How MPS work?](./imgs/how_mps_work.svg)
