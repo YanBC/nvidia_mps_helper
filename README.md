@@ -8,7 +8,7 @@ Note:
 4. There is an upper limit on how many clients an MPS server can support, for SM 3.5 to SM 6.0, the number is 16. For SM 7.0 it is 48 clients.
 
 ## How does MPS work?
-Nvidia MPS is a client/server architecture. When MPS is enabled, all CUDA applications work as clients to the MPS server. Instead of sending instructions to the GPU directly, apps send them via the MPS server. The MPS server acts as a scheduler. It assigns time slices on the GPU to each CUDA application. It is recommended to enable Nvidia exclusive mode on GPU to make the most out of MPS.
+Nvidia MPS is a client/server architecture. When MPS is enabled, all CUDA applications work as clients to the MPS server. Instead of sending instructions to the GPU directly, apps send them via the MPS server. In essence, the MPS server acts as a scheduler. It assigns time slices on the GPU to each CUDA application. It is recommended to enable Nvidia exclusive mode on GPU to make the most out of MPS.
 
 One thing to watch out for is that each MPS server is associated with a uid. Only CUDA apps with the same uid can access the MPS server. This rule exists to prevent different user's programs from interfering with each other. In the case of an existing MPS server, CUDA apps with a different uid will be queued and have to wait. Once the old MPS server exits, the MPS control daemon will wake up the first sleeping CUDA app and start an MPS server with the app's uid. Don't worry, these all happen automatically.
 
